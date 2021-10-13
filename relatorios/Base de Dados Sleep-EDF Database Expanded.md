@@ -1,6 +1,19 @@
 # Base de Dados Sleep-EDF Database Expanded
 Lucas Rigo Tofoli - 20211ceca0382
 
+```
+@article{kemp2000analysis,
+  title={Analysis of a sleep-dependent neuronal feedback loop: the slow-wave microcontinuity of the EEG},
+  author={Kemp, Bob and Zwinderman, Aeilko H and Tuk, Bert and Kamphuisen, Hilbert AC and Oberye, Josefien JL},
+  journal={IEEE Transactions on Biomedical Engineering},
+  volume={47},
+  number={9},
+  pages={1185--1194},
+  year={2000},
+  publisher={IEEE}
+}
+```
+
 ## Do que se trata a base de dados
 A base de dados é composta por 197 polissonografias com gravações de noites inteiras de sono, possuindo EEG, EOG e EMG do queixo, além disso algumas gravações ainda possuem dados sobre a respiração, temperatura corporal e alguns marcadores de eventos.
 
