@@ -1,4 +1,4 @@
-# Fichamento dos Artigos que utilizam a base de Dados Sleep-EDF Database Expanded
+# Fichamento dos Artigos que utilizam a base de dados Sleep-EDF Database Expanded
 Lucas Rigo Tofoli - 20211ceca0382
 
 ## EEG-based drowsiness detection platform to compare different methodologies
@@ -25,3 +25,33 @@ Resultados:
 Ao utilizar o sistema, o usuário pode escolher entre os diferentes tipos de classificadores, o que consequentemente influencia em diferentes resultados. Isso ajuda a aprimorar o sistema, de forma a escolher uma configuração que apresente a melhor precisão.
 
 No artigo foi apresentado o resultado de testes utilizando SVM com base radial kernel de função, possuindo assim 89,60% de precisão com delay 23 e 28,45% com delay 12.
+
+
+## Cepstrum Coefficients Based Sleep Stage Classification
+Esse artigo faz um estudo do coeficiente cepstrum discriminativo dos sinais de EEG para classificação dos estágios do sono, utilizando o Support Vector Machine (SVM). Sendo os 3 estágios do sono, "Wake", "REM" e "NREM".
+
+Extração de características para o classificador:
+
+Os coeficientes de cepstrum são extraídos para formar um vetor de recursos para remover a redundância nos sinais de EEG. E então a extração segue os seguintes passos:
+
+- As gravações do sinal de EEG são divididas em quadros de 30 segundos, e cada quadro é multiplicado por uma janela função para formar uma época.
+
+- DFT (Discrete Fourier Transform) das épocas são calculadas e seu valor absoluto é alimentado para um conjunto de filtros com escala de frequência, assim capturando uma banda de frequência predefinida.
+
+- Cada saída dos filtros é somada à frequência, e o logaritmo correspondente é calculado para obter a quantidade de energia das bandas para as quais o filtro é projetado.
+
+- E então a DCT (Discrete Cosine Transform) dos valores de espectro do logaritmo são calculados para voltar ao domínio do tempo. Resultando nos coeficientes cepstrum para formar o vetor de recursos.
+
+Classificação:
+
+Para realizar a classificação dos estágios do sono, é utilizado o Support Vector Machine (SVM), que assim como escrito anteriormente ele é um método de classificação onde um conjunto de dados de treinamento representando duas classes diferentes, é projetada em um alto espaço dimensional. No caso desse estudo, não é possível separar linearmente os dados do treinamento, por isso o modelo do SVM pode ser mapeado para um espaço dimensional maior através da função de Kernel, criando assim um hiperplano no domínio transformado. O método utilizado para fazer a comparação e assim classificar foi o um contra um.
+
+Resultados:
+
+Neste estudo, os coeficientes cepstrum são considerados como características do sinal EEG. Já os filtros (triangular, Hamming e Hanning), normalização do filtro, escala de frequência, energia das épocas e derivadas de primeira e segunda ordem dos coeficientes são considerados como parâmetros de extração de recursos, melhorando assim a atuação do classificador.
+
+A partir disso, observou-se que a melhor taxa de classificação é obtida para coeficientes cepstrum linear, utilizando banco de filtros Hamming normalizado e quando os recursos são aumentados com energia, coeficiente cepstrum de ordem zero e termos derivados, sendo assim  tendo como resultado uma precisão de 95,58%.
+
+## Conclusão
+
+Ambos os artigos estudam a base de dados Sleep-EDF Database Expanded como classificação, um dos artigos faz a análise separando em duas classes somente (acordado e sonolento) e o outro em três classes (awake, REM, NREM). Isso também demonstra que a base de dados pode ter diferentes pesquisas relacionadas ao seu conteúdo, utilizando diferentes métodos e classificadores.
