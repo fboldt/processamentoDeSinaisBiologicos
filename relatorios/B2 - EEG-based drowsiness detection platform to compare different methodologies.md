@@ -1,6 +1,7 @@
 # EEG-based drowsiness detection platform to compare different methodologies
 Lucas Rigo Tofoli - 20211ceca0382
 
+```
 @article{ribeiro2017eeg,
   title={EEG-based drowsiness detection platform to compare different methodologies},
   author={Ribeiro, Daniel and Teixeira, C{\'e}sar and Cardoso, Alberto},
@@ -9,15 +10,16 @@ Lucas Rigo Tofoli - 20211ceca0382
   year={2017},
   organization={IEEE}
 }
+```
 
 ## Do que se trata
 Esse artigo estuda a criação de um sistema capaz de detectar sonolência a partir da análise de sinais de EEG (eletroencefalograma). O objetivo de criar esse sistema é de diminuir as chances de um acidente de trânsito, principalmente de veículos pesados na rodovia, que em 30% das vezes é causado pela sonolência do motorista.
 
-### Extração de características para o classificador:
+### Extração de características
 
 Mesmo que haja uma grande variedade de informações que podem ser extraídos do sinal de EEG, esse sistema utiliza apenas os que foram observados com os melhores resultados para se utilizar no classificador. Com isso, no domínio do tempo foram extraídos as características relacionadas a média, variância, assimetria e curtose do sinal. E no domínio da frequência, foram extraídos as características relacionadas aos coeficientes de Hjorth (mobilidade e complexidade), entropia, densidade do espectro de potência, potência média e as sub-bandas do EEG (alfa, beta, teta e delta).
 
-### Classificação:
+### Classificação
 
 Agora com todas as características definidas, elas foram usadas como entrada para criação e treinamento dos classificadores. Para realizar essa classificação foram utilizados:
 
@@ -29,7 +31,7 @@ Agora com todas as características definidas, elas foram usadas como entrada pa
 
 - Naive Bayes: é um classificador com modelo de probabilidade condicional, baseado no Teorema de Bayes, o qual assume que todos os eventos pertencem a uma classe única das classes existentes, apoiado em um conhecimento a priori que pode estar relacionado ao evento.
 
-### Resultados:
+### Resultados
 
 Ao utilizar o sistema, o usuário pode escolher entre os diferentes tipos de classificadores, o que consequentemente influencia em diferentes resultados. Isso ajuda a aprimorar o sistema, de forma a escolher uma configuração que apresente a melhor precisão.
 
