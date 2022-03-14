@@ -35,4 +35,14 @@ Para realizar a classificação dos estágios do sono, é utilizado o Support Ve
 
 Neste estudo, os coeficientes cepstrum são considerados como características do sinal EEG. Já os filtros (triangular, Hamming e Hanning), normalização do filtro, escala de frequência, energia das épocas e derivadas de primeira e segunda ordem dos coeficientes são considerados como parâmetros de extração de características, melhorando assim a atuação do classificador.
 
-A partir disso, observou-se que a melhor taxa de classificação é obtida para coeficientes cepstrum linear, utilizando banco de filtros Hamming normalizado e quando as características são aumentados com energia, coeficiente cepstrum de ordem zero e termos derivados, sendo assim  tendo como resultado uma precisão de 95,58%.
+A partir disso, observou-se que a melhor taxa de classificação é obtida para coeficientes cepstrum linear, utilizando banco de filtros Hamming normalizado e quando as características são aumentados com energia, coeficiente cepstrum de ordem zero e termos derivados, sendo assim  tendo como resultado uma precisão de 95.58%.
+
+### Como funciona os cálculos para classificação dos estágios do sono
+
+A classificação é dividida em três estágios do sono, denominados 'wake', 'REM' e 'NREM'. Quatro diferentes possibilidades podem ocorrer no teste de uma época, sendo essas o True Positive (TP), o False Negative (FN), o False Positive (FP) e o True Negative (TN). Baseado nisso, o Sensitivity (SN), Specificity (SP) e o Correct Classification Ratio (CCR) são calculados da seguinte forma:
+
+![](img/calculos.png)
+
+O CCR calculado determina a acurácia e com objetivo de obter o maior CCR possível foi determinado um filtro que resultasse na melhor classificação, nesse caso para as escalas 'Linear' (LFCC) e 'Mel' (MFCC) foi utilizado o filtro Triangular, porém mesmo que ambas as funções tenham apresentado resultados muito similares, quando adicionados os recursos de energia da época, coeficiente de ordem zero e as derivadas de primeira e segunda ordem do coeficiente cepstrum (LFCC or MFCC + 0 + E + Δ + ΔΔ) , o LFCC (95.39%) apresentou um resultado melhor do que o MFCC (95.28%).
+
+O estudo também foi feito utilizando os filtros de Hamming e Hanning e ao fazer o cálculo utilizando todos esses filtros e suas versões normalizadas, o melhor resultado foi encontrado em 'LFCC + 0 + E + Δ + ΔΔ + Hanning + Normalize + SVM', com uma acurácia de 95.58%.
